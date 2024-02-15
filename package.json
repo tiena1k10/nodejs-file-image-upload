@@ -1,10 +1,11 @@
 {
-  "name": "06-jobs-api",
+  "name": "nodejs-file-image-upload",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "prod": "pm2 start app.js --name nodejs-file-image-upload --watch"
   },
   "author": "",
   "license": "ISC",
