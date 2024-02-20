@@ -27,7 +27,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("<h1>File Upload Starter</h1>");
 });
-app.post("status", (req, res) => {
+app.post("/status", (req, res) => {
   res.status(200).json({ status: "post success" });
 });
 app.get("/status", (req, res) => {
