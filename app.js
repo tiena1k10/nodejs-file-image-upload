@@ -30,6 +30,9 @@ app.get("/", (req, res) => {
 app.get("/status", (req, res) => {
   res.status(200).json({ status: "success" });
 });
+app.post("status", (req, res) => {
+  res.status(200).json({ status: "success" });
+});
 app.use("/api/v1/products", productsRoutes);
 // middleware
 app.use(notFoundMiddleware);
