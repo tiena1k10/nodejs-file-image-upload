@@ -27,10 +27,10 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("<h1>File Upload Starter</h1>");
 });
-app.get("/status", (req, res) => {
-  res.status(200).json({ status: "success" });
-});
 app.post("status", (req, res) => {
+  res.status(200).json({ status: "post success" });
+});
+app.get("/status", (req, res) => {
   res.status(200).json({ status: "success" });
 });
 app.use("/api/v1/products", productsRoutes);
