@@ -21,6 +21,11 @@ const productsRoutes = require("./routes/productRoutes");
 const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
 const fileUpload = require("express-fileupload");
+const {
+  getAllProducts,
+  createProduct,
+} = require("./controllers/productController");
+const { uploadProductImage } = require("./controllers/uploadsController");
 app.use(fileUpload({ useTempFiles: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
@@ -33,8 +38,9 @@ app.post("/status", (req, res) => {
 app.get("/status", (req, res) => {
   res.status(200).json({ status: "success" });
 });
-app.use("/api/v1/products", productsRoutes);
-// middleware
+app.route("/api/v1/products").get(getAllProducts).post(createProduct);
+app.route("/api/v1/products/uploads").post(uploadProductImage);
+
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
